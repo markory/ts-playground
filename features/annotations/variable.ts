@@ -47,3 +47,11 @@ for (let i = 0; i < words.length; i++) {
 }
 
 // 3) Variable whose type cannot be inferred
+let numbers = [-10 - 1, 12];
+let numberAboveZero: boolean | number = false; // bad example
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i];
+  }
+}
