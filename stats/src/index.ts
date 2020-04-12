@@ -1,20 +1,19 @@
+import { MatchResult } from './MatchResult';
 import { CsvFileReader } from './CsvFileReader';
+import { MatchReader } from './MatchReader';
 
-const reader = new CsvFileReader('football.csv');
-reader.read();
+// Create an object that satisfies the 'DataReader' interface
+const csvFileReader = new CsvFileReader('football.csv');
 
-console.log(reader.data);
-
-// enum - enumeration
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
+// create an instance of MatchReader and pass in somthing satisfying
+// the 'DataReader' interface
+const matchReader = new MatchReader(csvFileReader);
+matchReader.load();
+// matchReader.matches
 
 let manUnitedWins = 0;
 
-for (let match of reader.data) {
+for (let match of matchReader.matches) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manUnitedWins++;
   } else if (match[2] == 'Man United' && match[5] == MatchResult.AwayWin) {
