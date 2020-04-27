@@ -3,5 +3,6 @@
 ## How To Run it
 
 ```
-parcel index.html
+npm run start:db
+npm run start:parcel
 ```
