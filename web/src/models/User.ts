@@ -19,4 +19,5 @@ export class User extends Model<UserProps> {
             new ApiSync<UserProps>(rootUrl)
         );
     }
+
 }
